@@ -11,37 +11,20 @@ pipeline {
      
                stages {
 
-                     stage ('one') {
- 
-                              steps {
+                    stage ("deploy) {
+            
+            steps {
+  
+                docker ('default')
 
-                                       echo "deploying index.html on httpd"
+               sh "service httpd start"
+               sh "docker run -dp 90:80 --name a1 httpd"
+               sh "docker cp index.html a1:/usr/local/apache2/htdocs"
 
-                                                   }
- 
-                                           }
-                      stage ('two') {
- 
-                              steps {
-
-
-                                      sh "service httpd start" 
+            }
+        }
 
 
-                                                   }
- 
-                                           }
-                        stage ('three') {
- 
-                              steps {
-
-                                   sh "cp -r index.html /var/www/html/index.html"
-                                   sh "chmod -R 777 /var/www/html/index.html"
-
-                                                   }
- 
-                                           }
-                      
-                            }
+       }
 
           }
