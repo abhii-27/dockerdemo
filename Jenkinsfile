@@ -15,7 +15,7 @@ pipeline {
             
             steps {
                sh "docker run -dp 90:80 --name a1 httpd"
-               sh "docker cp index.html a1:/usr/local/apache2/htdocs"
+               sh "docker cp index.html a1:/usr/local/apache2/htdocs/index.html"
               sh "docker exec a1 chmod -R 755 /usr/local/apache2/htdocs/"
             }
         }
