@@ -14,9 +14,9 @@ pipeline {
                     stage ("deploy") {
             
             steps {
-               sh "docker run -dp 8080:80 --name a2 httpd"
-               sh "docker cp index.html a2:/usr/local/apache2/htdocs/index.html"
-              sh "docker exec a2 chmod -R 755 /usr/local/apache2/htdocs/"
+               sh "docker run -dp 8080:80 --name a4 httpd"
+               sh "docker cp index.html a4:/usr/local/apache2/htdocs/index.html"
+              sh "docker exec a4 chmod -R 755 /usr/local/apache2/htdocs/"
             }
         }
 
