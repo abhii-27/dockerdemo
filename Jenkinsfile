@@ -5,7 +5,7 @@ pipeline {
                } 
         }
             environment{
-              REPO_URL = " "
+              REPO_URL = " https://github.com/abhii-27/dockerdemo.git "
             }
                     stages {
                  stage ("CleanWorksc") {
